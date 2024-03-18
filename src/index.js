@@ -13,7 +13,7 @@ const page = (() => {
     }
 
     function _getWeatherAPI() {
-        fetch ("https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q=malaysia", {mode: 'cors'})
+        fetch ("https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q=Johor Bahru", {mode: 'cors'})
             .then(function(response) {
                 return response.json();
             })
