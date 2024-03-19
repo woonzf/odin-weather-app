@@ -15,7 +15,7 @@
     margin: 0;
     padding: 0;
     font-family: "Micro 5";
-    font-size: 24px;
+    font-size: 1.2rem;
     color: white;
 }
 
@@ -114,19 +114,18 @@ a {
     gap: 10px;
 }
 
-#date-time,
-#weather,
-.sub-info,
-.sub-info > div {
-    font-size: 28px;
+#date-time > div:last-of-type,
+#weather > div,
+.sub-info div {
+    font-size: 1.5rem;
 }
 
 #name {
-    font-size: 40px;
+    font-size: 2rem;
 }
 
 #date-time > div:first-of-type {
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 #date-time,
@@ -177,16 +176,16 @@ a {
 
 .box-forecast > div {
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .box-forecast > div:first-of-type {
-    font-size: 36px;
+    font-size: 2rem;
 }
 
 #footer {
     height: 40px;
-    width: 290px;
+    width: 15.5rem;
     display: flex;
     align-items: center;
     gap: 50px;
@@ -199,13 +198,13 @@ a {
 }
 
 #footer > a {
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 0.8rem;
 }
 
 #footer > a > span {
-    margin-top: 4px;
+    margin-top: 0.2rem;
 }
 
 #footer a:hover {
@@ -214,7 +213,12 @@ a {
 }
 
 #wrapper {
-    width: 190px;
+    width: 10rem;
+}
+
+#wrapper > a {
+    display: flex;
+    justify-content: center;
 }
 
 #wrapper > a:hover {
@@ -224,21 +228,21 @@ a {
 /* Image */
 #icon-location,
 #icon-github {
-    height: 30px;
+    height: 1.6rem;
 }
 
 #icon {
-    height: 80px;
+    height: 4.5rem;
 }
 
 .sub-info > img {
-    height: 50px;
+    height: 2.5rem;
 }
 
 #wrapper a > img {
-    height: 40px;
+    height: 2rem;
 }
 
 #wrapper a:hover > img {
-    height: 45px;
+    height: 2.1rem;
 }
