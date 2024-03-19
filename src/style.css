@@ -1,3 +1,9 @@
+:root {
+    --width-boxfc: 15vh;
+    --gap-fc: 1vw;
+    --width-info: calc(3*var(--width-boxfc) + 2*var(--gap-fc));
+}
+
 @font-face {
     font-family: "Micro 5";
     src: url(./font/Micro5-Regular.ttf) format("truetype");
@@ -91,25 +97,96 @@ a {
 .card-info {
     box-sizing: border-box;
     height: 50vh;
-    width: calc(3*15vh + 2*1vw);
-    border-radius: 10px;
-    padding: 10px;
+    width: var(--width-info);
+    border-radius: 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sub-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#date-time,
+#weather,
+.sub-info,
+.sub-info > div {
+    font-size: 28px;
+}
+
+#name {
+    font-size: 40px;
+}
+
+#date-time > div:first-of-type {
+    font-size: 18px;
+}
+
+#date-time,
+#condition {
+    text-align: center;
+}
+
+#weather {
+    display: flex;
+}
+
+#weather > div {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    column-gap: 50px;
+    row-gap: 20px;
+}
+
+#wind > div {
+    text-align: end;
 }
 
 #forecast {
     display: flex;
     flex-direction: row;
-    gap: 1vw;
+    gap: var(--gap-fc);
 }
 
 .box-forecast {
-    height: 17vh;
-    width: 15vh;
+    box-sizing: border-box;
+    height: 20vh;
+    width: var(--width-boxfc);
     border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-forecast > div {
+    text-align: center;
+    font-size: 18px;
+}
+
+.box-forecast > div:first-of-type {
+    font-size: 36px;
 }
 
 #footer {
     height: 40px;
+    width: 290px;
     display: flex;
     align-items: center;
     gap: 50px;
@@ -136,11 +213,11 @@ a {
     text-shadow: 1px 1px 10px white;
 }
 
-#api-wrapper {
-    width: 200px;
+#wrapper {
+    width: 190px;
 }
 
-#api-wrapper > a:hover {
+#wrapper > a:hover {
     box-shadow: none;
 }
 
@@ -150,10 +227,18 @@ a {
     height: 30px;
 }
 
-#api-wrapper a > img {
+#icon {
+    height: 80px;
+}
+
+.sub-info > img {
+    height: 50px;
+}
+
+#wrapper a > img {
     height: 40px;
 }
 
-#api-wrapper a:hover > img {
+#wrapper a:hover > img {
     height: 45px;
 }

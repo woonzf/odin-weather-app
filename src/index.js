@@ -7,6 +7,7 @@ import { weather } from './weather';
 const page = (() => {
     const input = document.querySelector("#location");
     const submit = document.querySelector("#submit-location");
+    const forecast = document.querySelector("#forecast");
     const queryAPI = "https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q="
     
     function init() {
@@ -29,25 +30,16 @@ const page = (() => {
                 }
                 else {
                     _removeErrors();
+                    weather.getCurrentInfo(response);
                     _createForecast(response);
                 }
             });
     }
 
     function _createForecast(data) {
-        const div = document.querySelector("#forecast");
-        while (div.children.length > 0) div.removeChild(div.lastChild);
-        for (const day of data.forecast.forecastday) {
-            const box = document.createElement("div");
-            box.classList.add("box-forecast");
-            box.classList.add("bg-info");
-            
-            const icon = document.createElement("img");
-            icon.src = weather.getIcon(day);
-            box.append(icon);
-
-            div.append(box);
-        }
+        while (forecast.children.length > 0) forecast.removeChild(forecast.lastChild);
+        const boxes = weather.getForecastBoxes(data);
+        for (const box of boxes) forecast.append(box);
     }
 
     function _initSearch() {
@@ -72,8 +64,7 @@ const page = (() => {
     }
 
     function _removeErrors() {
-        input.classList.remove("invalid");
-        input.classList.remove("error");
+        input.classList.remove("invalid", "error");
     }
 
     return { init }
