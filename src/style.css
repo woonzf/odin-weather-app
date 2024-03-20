@@ -123,7 +123,7 @@ a {
 }
 
 #date-time > div:first-of-type {
-    font-size: 18px;
+    margin-bottom: -10px;
 }
 
 #date-time,
