@@ -143,7 +143,8 @@ a {
     justify-content: space-evenly;
 }
 
-#weather > div {
+#condition {
+    min-width: 80px;
     max-width: 200px;
     display: flex;
     justify-content: center;
