@@ -23,7 +23,6 @@ const page = (() => {
                 return response.json();
             })
             .then(function(response) {
-                console.log(response)
                 if (response.error) {
                     _removeErrors();
                     input.classList.add("error");

@@ -2,6 +2,7 @@
     --width-boxfc: 15vh;
     --gap-fc: 1vw;
     --width-info: calc(3*var(--width-boxfc) + 2*var(--gap-fc));
+    --padding-info: 30px;
 }
 
 @font-face {
@@ -98,17 +99,17 @@ a {
     height: 50vh;
     width: var(--width-info);
     border-radius: 20px;
-    padding: 20px;
+    padding: var(--padding-info);
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 .sub-info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -120,6 +121,7 @@ a {
 
 #name {
     font-size: 40px;
+    text-align: center;
 }
 
 #date-time > div:first-of-type {
@@ -146,8 +148,9 @@ a {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(2, 150px);
-    column-gap: 50px;
+    grid-template-columns: repeat(2, calc((var(--width-info) - 3*var(--padding-info)) / 2));
+    grid-template-rows: auto;
+    column-gap: var(--padding-info);
     row-gap: 20px;
 }
 
@@ -184,7 +187,8 @@ a {
 }
 
 #wind > div div {
-    line-height: 70%;
+    font-size: 28px;
+    line-height: 80%;
 }
 
 #footer {
@@ -208,7 +212,7 @@ a {
 }
 
 #footer > a > span {
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 #footer a:hover {
@@ -243,4 +247,19 @@ a {
 
 #wrapper a:hover > img {
     height: 45px;
+}
+
+@media screen and (max-width: 455px) {
+    .card-info {
+        width: 90vw;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, calc((90vw - 15vw) / 2));
+        column-gap: 5vw;
+    }
+
+    .box-forecast {
+        width: calc(90vw / 3);
+    }
 }
