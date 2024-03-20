@@ -2,7 +2,7 @@
     --width-boxfc: 15vh;
     --gap-fc: 1vw;
     --width-info: calc(3*var(--width-boxfc) + 2*var(--gap-fc));
-    --padding-info: 30px;
+    --padding-info: 3vw;
 }
 
 @font-face {
@@ -249,14 +249,22 @@ a {
     height: 45px;
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-aspect-ratio: 2/3) {
+    #location {
+        width: 40vw;
+    }
+
+    #submit-location {
+        width: 20vw;
+    }
+    
     .card-info {
         width: 90vw;
     }
 
     .card-grid {
-        grid-template-columns: repeat(2, calc((90vw - 15vw) / 2));
-        column-gap: 5vw;
+        grid-template-columns: repeat(2, calc((90vw - 30vw) / 2));
+        column-gap: 10vw;
     }
 
     .box-forecast {
