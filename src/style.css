@@ -15,7 +15,7 @@
     margin: 0;
     padding: 0;
     font-family: "Micro 5";
-    font-size: 1.2rem;
+    font-size: 24px;
     color: white;
 }
 
@@ -44,7 +44,6 @@ a {
 }
 
 #location {
-    height: 30px;
     width: 200px;
     border-radius: 10px;
     border: 1px solid white;
@@ -109,23 +108,22 @@ a {
 
 .sub-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 10px;
 }
 
 #date-time > div:last-of-type,
 #weather > div,
 .sub-info div {
-    font-size: 1.5rem;
+    font-size: 32px;
 }
 
 #name {
-    font-size: 2rem;
+    font-size: 40px;
 }
 
 #date-time > div:first-of-type {
-    font-size: 1rem;
+    font-size: 18px;
 }
 
 #date-time,
@@ -134,11 +132,13 @@ a {
 }
 
 #weather {
+    width: 300px;
     display: flex;
+    justify-content: space-evenly;
 }
 
 #weather > div {
-    width: 150px;
+    max-width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,17 +175,21 @@ a {
 }
 
 .box-forecast > div {
+    font-size: 18px;
     text-align: center;
-    font-size: 1rem;
 }
 
 .box-forecast > div:first-of-type {
-    font-size: 2rem;
+    font-size: 36px;
+}
+
+#wind > div div {
+    line-height: 70%;
 }
 
 #footer {
     height: 40px;
-    width: 15.5rem;
+    width: 310px;
     display: flex;
     align-items: center;
     gap: 50px;
@@ -198,13 +202,13 @@ a {
 }
 
 #footer > a {
-    height: 1.6rem;
-    width: 1.6rem;
-    border-radius: 0.8rem;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
 }
 
 #footer > a > span {
-    margin-top: 0.2rem;
+    margin-top: 3px;
 }
 
 #footer a:hover {
@@ -213,7 +217,7 @@ a {
 }
 
 #wrapper {
-    width: 10rem;
+    width: 190px;
 }
 
 #wrapper > a {
@@ -227,22 +231,16 @@ a {
 
 /* Image */
 #icon-location,
-#icon-github {
-    height: 1.6rem;
+#icon-github,
+.sub-info > img,
+#wrapper a > img {
+    height: 40px;
 }
 
 #icon {
-    height: 4.5rem;
-}
-
-.sub-info > img {
-    height: 2.5rem;
-}
-
-#wrapper a > img {
-    height: 2rem;
+    height: 80px;
 }
 
 #wrapper a:hover > img {
-    height: 2.1rem;
+    height: 45px;
 }
