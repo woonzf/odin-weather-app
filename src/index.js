@@ -1,10 +1,16 @@
 import './style.css';
 import locationIcon from './images/map-marker-custom.png';
 import gitHubIcon from './images/github-mark-white.png';
+import loadingIcon from './images/loading-custom.png';
 
 import { weather } from './weather';
 
 const page = (() => {
+    const icon = document.querySelector("#icon-location");
+    const image = document.querySelector("#icon-github");
+    const imgLoad = document.querySelector("#loading > img");
+    const info = document.querySelector("#info > div:first-of-type");
+    const loading = document.querySelector("#loading");
     const input = document.querySelector("#location");
     const submit = document.querySelector("#submit-location");
     const forecast = document.querySelector("#forecast");
@@ -12,17 +18,25 @@ const page = (() => {
     
     function init() {
         document.title = "Weather App";
+        _initIcons();
         _initSearch();
-        _initFooter();
         _getWeatherAPI("Malaysia");
     }
 
+    function _initIcons() {
+        icon.src = locationIcon;
+        image.src = gitHubIcon;
+        imgLoad.src = loadingIcon;
+    }
+
     function _getWeatherAPI(location) {
+        _startLoading();
         fetch (queryAPI + location, {mode: 'cors'})
             .then(function(response) {
                 return response.json();
             })
             .then(function(response) {
+                _stopLoading();
                 if (response.error) {
                     _removeErrors();
                     input.classList.add("error");
@@ -42,9 +56,6 @@ const page = (() => {
     }
 
     function _initSearch() {
-        const icon = document.querySelector("#icon-location");
-        icon.src = locationIcon;
-
         submit.onclick = function(e) {
             e.preventDefault();
             if (input.value == "") {
@@ -57,13 +68,19 @@ const page = (() => {
         }
     }
 
-    function _initFooter() {
-        const image = document.querySelector("#icon-github");
-        image.src = gitHubIcon;
-    }
-
     function _removeErrors() {
         input.classList.remove("invalid", "error");
+    }
+
+    function _startLoading() {
+        info.classList.add("hide");
+        loading.classList.remove("hide");
+    }
+
+    function _stopLoading() {
+        setTimeout(() => {}, 5000);
+        info.classList.remove("hide");
+        loading.classList.add("hide");
     }
 
     return { init }
