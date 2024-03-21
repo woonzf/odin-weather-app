@@ -31,17 +31,23 @@ const weather = (() => {
         dateTime.textContent = current.last_updated.replaceAll("-", ".");
         condition.textContent = current.condition.text;
         icon.src = current.condition.icon;
+
         imgTemp.src = iconTemp;
         textTemp.textContent = current.temp_c + " °C";
+
         imgFeel.src = iconFeel;
         textFeel.textContent = current.feelslike_c + " °C";
+
         imgCloud.src = iconCloud;
         textCloud.textContent = current.cloud + " %";
+
         imgHumid.src = iconHumid;
         textHumid.textContent = current.humidity + " %";
+
         imgWind.src = iconWind;
         textWindSpd.textContent = `${current.wind_kph} KPH`;
         textWindDir.textContent = `${current.wind_degree}° ${current.wind_dir}`;
+        
         imgUV.src = iconUV;
         textUV.textContent = `UVI ${current.uv}`;
     }
@@ -57,16 +63,13 @@ const weather = (() => {
             const date = document.createElement("div");
             date.textContent = _getMonthDate(fcday);
 
-            const condition = document.createElement("div");
-            condition.textContent = fcday.day.condition.text;
-
             const icon = document.createElement("img");
             icon.src = fcday.day.condition.icon;
 
             const temp = document.createElement("div");
             temp.textContent = `${fcday.day.mintemp_c} ~ ${fcday.day.maxtemp_c} °C`;
 
-            box.append(date, condition, icon, temp);
+            box.append(date, icon, temp);
             boxes.push(box);
         }
         

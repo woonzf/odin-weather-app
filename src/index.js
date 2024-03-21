@@ -14,6 +14,7 @@ const page = (() => {
     const input = document.querySelector("#location");
     const submit = document.querySelector("#submit-location");
     const forecast = document.querySelector("#forecast");
+    let boxesForecast = null;
     const queryAPI = "https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q="
     
     function init() {
@@ -75,12 +76,21 @@ const page = (() => {
     function _startLoading() {
         info.classList.add("hide");
         loading.classList.remove("hide");
+
+        boxesForecast = document.querySelectorAll(".box-forecast");
+        boxesForecast.forEach(box => {
+            box.classList.add("blur");
+        });
     }
 
     function _stopLoading() {
         setTimeout(() => {}, 5000);
         info.classList.remove("hide");
         loading.classList.add("hide");
+        
+        boxesForecast.forEach(box => {
+            box.classList.remove("blur");
+        });
     }
 
     return { init }
