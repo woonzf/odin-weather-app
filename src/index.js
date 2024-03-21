@@ -1,4 +1,5 @@
 import './style.css';
+import favIcon from './images/sun.png';
 import locationIcon from './images/map-marker-custom.png';
 import gitHubIcon from './images/github-mark-white.png';
 import loadingIcon from './images/loading-custom.png';
@@ -6,6 +7,7 @@ import loadingIcon from './images/loading-custom.png';
 import { weather } from './weather';
 
 const page = (() => {
+    const imgFavIcon = document.querySelector("link");
     const icon = document.querySelector("#icon-location");
     const image = document.querySelector("#icon-github");
     const imgLoad = document.querySelector("#loading > img");
@@ -15,7 +17,7 @@ const page = (() => {
     const submit = document.querySelector("#submit-location");
     const forecast = document.querySelector("#forecast");
     let boxesForecast = null;
-    const queryAPI = "https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q="
+    const queryAPI = "https://api.weatherapi.com/v1/forecast.json?key=762bb06944f34a6082b34316241001&days=3&q=";
     
     function init() {
         document.title = "Weather App";
@@ -25,9 +27,23 @@ const page = (() => {
     }
 
     function _initIcons() {
+        imgFavIcon.href = favIcon;
         icon.src = locationIcon;
         image.src = gitHubIcon;
         imgLoad.src = loadingIcon;
+    }
+
+    function _initSearch() {
+        submit.onclick = function(e) {
+            e.preventDefault();
+            if (input.value == "") {
+                _removeErrors();
+                input.classList.add("invalid");
+            } else {
+                _getWeatherAPI(input.value);
+                input.value = "";
+            }
+        }
     }
 
     function _getWeatherAPI(location) {
@@ -56,19 +72,6 @@ const page = (() => {
         for (const box of boxes) forecast.append(box);
     }
 
-    function _initSearch() {
-        submit.onclick = function(e) {
-            e.preventDefault();
-            if (input.value == "") {
-                _removeErrors();
-                input.classList.add("invalid");
-            } else {
-                _getWeatherAPI(input.value);
-                input.value = "";
-            }
-        }
-    }
-
     function _removeErrors() {
         input.classList.remove("invalid", "error");
     }
@@ -87,7 +90,7 @@ const page = (() => {
         setTimeout(() => {}, 5000);
         info.classList.remove("hide");
         loading.classList.add("hide");
-        
+
         boxesForecast.forEach(box => {
             box.classList.remove("blur");
         });
