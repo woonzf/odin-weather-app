@@ -2,7 +2,7 @@
     --width-boxfc: 15vh;
     --gap-fc: 1vw;
     --width-info: calc(3*var(--width-boxfc) + 2*var(--gap-fc));
-    --padding-info: 3vw;
+    --padding-info: calc(var(--width-info) * 0.3 / 3);
 }
 
 @font-face {
@@ -142,10 +142,10 @@ a {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(2, calc((var(--width-info) - 3*var(--padding-info)) / 2));
+    grid-template-columns: repeat(2, calc(var(--width-info) * 0.35));
     grid-template-rows: auto;
     column-gap: var(--padding-info);
-    row-gap: 20px;
+    row-gap: 2vh;
 }
 
 #forecast {
@@ -238,7 +238,7 @@ a {
 }
 
 #wind > div div {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 80%;
 }
 
