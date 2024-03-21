@@ -1,4 +1,5 @@
 import './style.css';
+import favIcon from './images/sun.png';
 import locationIcon from './images/map-marker-custom.png';
 import gitHubIcon from './images/github-mark-white.png';
 import loadingIcon from './images/loading-custom.png';
@@ -6,6 +7,7 @@ import loadingIcon from './images/loading-custom.png';
 import { weather } from './weather';
 
 const page = (() => {
+    const imgFav = document.querySelector("link");
     const icon = document.querySelector("#icon-location");
     const image = document.querySelector("#icon-github");
     const imgLoad = document.querySelector("#loading > img");
@@ -25,6 +27,7 @@ const page = (() => {
     }
 
     function _initIcons() {
+        imgFav.href = favIcon;
         icon.src = locationIcon;
         image.src = gitHubIcon;
         imgLoad.src = loadingIcon;
